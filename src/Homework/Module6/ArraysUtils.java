@@ -1,4 +1,4 @@
-package Homework.module6;
+package Homework.Module6;
 import Homework.Module2.Task2_1;
 
 public final class ArraysUtils {

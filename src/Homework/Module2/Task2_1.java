@@ -24,24 +24,24 @@ public class Task2_1 {
     }
 
     //integer
-    private static int sum(int[] array) {   //sum method
+    public static int sum(int[] array) {   //sum method
         int sum = 0;
         for (int item : array) sum += item;
         return sum;
     }
 
-    private static int min(int array[]) {    //min method
+    public static int min(int array[]) {    //min method
         int min = array[0];
         for (short l = 1; l < array.length; l++) if (min > array[l]) min = array[l];
         return min;
     }
-    private static int max(int array[]) {     //max method
+    public static int max(int array[]) {     //max method
         int max = array[0];
         for (short l = 1; l < array.length; l++) if (max < array[l]) max = array[l];
         return max;
     }
 
-    private static int maxPositive(int array[]) {  //maxPositive method
+    public static int maxPositive(int array[]) {  //maxPositive method
         int max = array[0];
         for (short l = 1; l < array.length; l++){
             if (max < array[l]){
@@ -51,16 +51,16 @@ public class Task2_1 {
         return max;
     }
 
-    private static long multiplication(int[] array) {    //multiplication method
+    public static long multiplication(int[] array) {    //multiplication method
         long multiplication = 1;
         for (long item : array) multiplication *= item;
         return multiplication;
     }
 
-    private static int modulus(int[] array) {//modulus method
+    public static int modulus(int[] array) {//modulus method
         return array[0]%array[array.length-1];
     }
-    private static int secondLargest(int[] array){      //secondLargest
+    public static int secondLargest(int[] array){      //secondLargest
         int secondLargest= min(array);
         for (int anArray : array) if ((secondLargest < anArray) && (anArray < max(array))) secondLargest = anArray;
         return secondLargest;
