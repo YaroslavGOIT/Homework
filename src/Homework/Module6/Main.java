@@ -1,4 +1,4 @@
-package Homework.module6;
+package Homework.Module6;
 
 public class Main {
     public static void main(String[] args) {

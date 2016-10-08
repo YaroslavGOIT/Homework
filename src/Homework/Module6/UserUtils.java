@@ -1,4 +1,6 @@
-package Homework.module6;
+package Homework.Module6;
+
+import Homework.Module7.Order;
 
 public class UserUtils {
     public static User[] uniqueUsers(User[] users){
@@ -60,5 +62,26 @@ public class UserUtils {
             }
         }
         return afterUser;
+    }
+    public static int alphabet(String o1, String o2){
+        char[] alphabet=new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm',
+                'n', 'o', 'p', 'w', 'r', 's' ,'t' ,'v' ,'x' ,'y', 'z',' '};
+        int f = 0;
+        for (int i = 0; i < o1.length(); i++) {
+            for (int j = 0; j < o2.length(); j++) {
+                int a=finderArray(o1.charAt(i),alphabet);
+                int b=finderArray(o2.charAt(j),alphabet);
+                f=a-b;
+            }
+        }
+        return f;
+    }
+
+    private static int finderArray(char city,char[] alp){
+        int find=0;
+        for(int i=0;i<alp.length;i++){
+            if(city==alp[i])find=i;
+        }
+        return find;
     }
 }
