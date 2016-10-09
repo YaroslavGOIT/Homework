@@ -84,4 +84,27 @@ public class UserUtils {
         }
         return find;
     }
+    public static String generatorString(){
+        String str="";
+        char[] alphabet=new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k', 'l', 'm',
+                'n', 'o', 'p', 'w', 'r', 's' ,'t' ,'v' ,'x' ,'y', 'z',' ','1'};
+        for(int i=0;i<25;i++){
+            double x =Math.random()* 100 / 4.16;
+            int b=(int) x;
+            str=str+alphabet[b];
+        }
+
+        return str;
+    }
+    public static int generatorInt(){
+        int i=0;
+        for(int g=0;g<5;g++){
+            double x =Math.random()* 100 / 2;
+            int b=(int) x;
+            i=+b;
+        }
+        i=i-6;
+        return i;
+    }
+
 }
