@@ -1,7 +1,9 @@
 package Homework.Module5;
 
-public interface API {
-    abstract Room[] findRooms(int prace,int persons,String city,String hotel);
+import java.util.List;
 
-    Room[] getRooms();
+public interface API {
+    abstract List<Room> findRooms(int prace, int persons, String city, String hotel);
+    public List<Room> getRooms();
+    public boolean equals(Object o);
 }

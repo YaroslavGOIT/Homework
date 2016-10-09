@@ -1,5 +1,7 @@
 package Homework.Module5;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Controller cntrl=new Controller();
@@ -8,7 +10,7 @@ public class Main {
 
     }
 
-    static void loop(Room[] rooms) {
+    static void loop(List<Room> rooms) {
         for (Room elements : rooms) {
             if(elements!=null)
             System.out.println(elements);

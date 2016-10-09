@@ -1,4 +1,8 @@
 package Homework.Module5;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
     private API apisk[]=new API[3];
 
@@ -9,66 +13,42 @@ public class Controller {
 
     }
 
+    /**-------------------------------------------------------------------*/
+    public List<Room> requestRooms(int prace, int persons, String city, String hotel){
+        List<Room> rm2=apisk[0].findRooms(prace, persons, city, hotel);
+        List<Room> rm3=apisk[1].findRooms(prace, persons, city, hotel);
+        List<Room> rm1=apisk[2].findRooms(prace, persons, city, hotel);
+        List<Room> rms=new ArrayList<>();
 
-    public Room[] requestRooms(int prace, int persons, String city, String hotel){
-        Room[] rm2=apisk[0].findRooms(prace, persons, city, hotel);
-        Room[] rm3=apisk[1].findRooms(prace, persons, city, hotel);
-        Room[] rm1=apisk[2].findRooms(prace, persons, city, hotel);
-        Room[] rms=new Room[rm1.length+rm2.length+rm3.length];
-
-        int cout=0;
-        for(int i=0;i<rm1.length;i++){
-            rms[cout]=rm1[i];
-            cout++;
-        }
-
-        for(int i=0;i<rm2.length;i++){
-            rms[cout]=rm2[i];
-            cout++;
-        }
-
-        for(int i=0;i<rm3.length;i++){
-            rms[cout]=rm3[i];
-            cout++;
-        }
-
+        ffor(rm1,rms);
+        ffor(rm2,rms);
+        ffor(rm3,rms);
 
         return rms;
     }
 
+    private List<Room> ffor(List<Room> getFor,List<Room> finish){
+        for(Room room:getFor){
+            finish.add(room);
+        }
+        return finish;
+    }
+    /**-------------------------------------------------------------------*/
 
+    public List<Room> check(API api1,API api2){
+        List<Room> komnata=api1.getRooms();
+        List<Room> komnata1=api2.getRooms();
+        List<Room> roomiks=new ArrayList<>();
 
-    public Room[] check(API api1,API api2){
-        Room[] komnata=api1.getRooms();
-        Room[] komnata1=api2.getRooms();
-
-        Room[] roomiks=new Room[/*komnata.length+komnata1.length*/1000];
-        int count=0;
-        for(int i=0;i<komnata.length;i++){
-            for (int j=0;j<komnata1.length;j++){
-                if(komnata[i].equals(komnata1[j])&&j!=i){
-                    roomiks[count]=komnata[i];
-                    count++;
+        for(Room komnata01:komnata) {
+            for (Room komnata02 : komnata1) {
+                if(komnata01.equals(komnata02)){
+                    roomiks.add(komnata01);
                 }
             }
         }
-        roomiks=deleteEmptyUsers(roomiks);
 
         return roomiks;
     }
-    private static Room[] deleteEmptyUsers(Room[] users){
-        int count=0;
-        for(Room user:users){
-            if(user!=null)count++;
-        }
-        Room[] afterUser=new Room[count];
-        count=0;
-        for(Room user:users){
-            if(user!=null){
-                afterUser[count]=user;
-                count++;
-            }
-        }
-        return afterUser;
-    }
+
 }

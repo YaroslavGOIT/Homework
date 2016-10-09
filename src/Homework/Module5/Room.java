@@ -24,17 +24,23 @@ public class Room {
 
         Room room = (Room) o;
 
-        return (this.price == room.getPrice()
-                && this.persons == room.getPersons()
-                && this.cityName.equals(room.getCityName())
-        );
+        if (id != room.id) return false;
+        if (price != room.price) return false;
+        if (persons != room.persons) return false;
+        if (dateAvailableFrom != null ? !dateAvailableFrom.equals(room.dateAvailableFrom) : room.dateAvailableFrom != null)
+            return false;
+        if (hotelName != null ? !hotelName.equals(room.hotelName) : room.hotelName != null) return false;
+        return cityName != null ? cityName.equals(room.cityName) : room.cityName == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = price;
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + price;
         result = 31 * result + persons;
+        result = 31 * result + (dateAvailableFrom != null ? dateAvailableFrom.hashCode() : 0);
+        result = 31 * result + (hotelName != null ? hotelName.hashCode() : 0);
         result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
         return result;
     }
